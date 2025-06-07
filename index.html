@@ -14,9 +14,9 @@ html
         }
 
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
+            --primary-color: #f06a6a;    /* Light Red */
+            --secondary-color: #b71212;  /* Medium Red */
+            --accent-color: #c40202;    /* Dark Red */
         }
 
         body {
@@ -31,6 +31,7 @@ html
             background: var(--primary-color);
             z-index: 1000;
             padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .nav-content {
@@ -54,7 +55,7 @@ html
         }
 
         .nav-menu a {
-            color: white;
+            color: var(--accent-color);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
@@ -97,12 +98,13 @@ html
 
         .gallery-item {
             height: 250px;
-            background: #f0f0f0;
+            background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            color: #333;
+            color: var(--accent-color);
+            border: 1px solid var(--primary-color);
         }
 
         .blog-grid {
@@ -131,7 +133,7 @@ html
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
         .form-group input,
@@ -139,8 +141,16 @@ html
         .form-group textarea {
             width: 100%;
             padding: 0.8rem;
-            border: 1px solid #ddd;
+            border: 1px solid var(--primary-color);
             border-radius: 4px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(204,0,0,0.1);
         }
 
         footer {
@@ -161,6 +171,20 @@ html
             text-decoration: none;
         }
 
+        .submit-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #990000;
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -173,6 +197,7 @@ html
     </style>
 </head>
 <body>
+    <!-- The HTML content remains the same as before -->
     <nav class="nav-wrapper">
         <div class="nav-content">
             <img src="logo.png" alt="School Logo" class="logo">
@@ -296,7 +321,7 @@ html
         const hamburger = document.createElement('div');
         hamburger.innerHTML = '☰';
         document.querySelector('.nav-content').appendChild(hamburger);
-        hamburger.style.color = 'white';
+        hamburger.style.color = '#cc0000';
         hamburger.style.cursor = 'pointer';
 
         hamburger.addEventListener('click', () => {
